@@ -64,6 +64,7 @@ class CascadingSelect extends HTMLElement {
             this.showDependent();
         } else {
             this.setInactiveDependentVisibility();
+            this.dependentSelect.options[0].selected = true;
         }
     }
 
