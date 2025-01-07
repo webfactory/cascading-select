@@ -2,19 +2,21 @@
 
 Web Component für voneinander abhängige `<select>` Formularelemente, bei der die verfügbaren Optionen in einer untergeordneten Auswahlliste auf der Auswahl in einer übergeordneten Liste basieren. Das Muster ist auch als "dependent select" (eine Unterform des generischen "input-dependent input") oder "cascading dropdowns" bekannt.
 
+<!--
 ## Installation
 
 ```
 yarn install @webfactory/cascading-select
 ```
+-->
 
 ## Verwendung
 
 Die Web Component `<cascading-select>` ist ein leichtgewichtiger Wrapper für Standard Formular-Markup. Die Nutzung von `<fieldset>`, `<legend>`, `<label>` sowie weiterer Elemente oder Klassen, die für Layout und Styling nötig sind, bleibt dabei komplett flexibel.
 
-1. Die JS-Datei "cascading-select.js" muss geladen werden. Je nach Anforderungen an Browser Support ist eine Transpilierung für alte Browser empfhelenswert.
+1. Die JS-Datei "cascading-select.js" muss geladen werden. Je nach Anforderungen an Browser Support ist eine Transpilierung für alte Browser empfehlenswert.
 2. Innerhalb der Web Component müssen zwei `<select>` Elemente ausgegeben werden.
-3. Das "parent" `<select>` bzw. die "control" benötigt ein Attribut `data-dependent-id`, das als Wert die id des "depenent" `<select>` enthält, um die beiden zu verknüpfen.
+3. Das "parent" `<select>` bzw. die "control" benötigt ein Attribut `data-dependent-id`, das als Wert die `id` des "dependent" `<select>` enthält, um die beiden Felder zu verknüpfen.
 4. Die `<option>`s des "parent" `<select>`, für die es eine Unterauswahl in zweiter Ebene gibt, benötigen ein Attribut `data-dependent-options`, das als Wert ein JSON-formatiertes Array von Objekten mit jeweils einem `label` und `value` enthält. Leere Platzhalter-Optionen müssen ebenfalls aufgeführt werden.
 5. Das "dependent" `<select>` benötigt ein `id`-Attribut mit der in Schritt 3 verwendeten ID.
 
