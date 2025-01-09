@@ -38,9 +38,7 @@ class CascadingSelect extends HTMLElement {
         this.dependentSelectId = this.parentSelect.getAttribute('data-dependent-id');
         this.dependentSelect = this.querySelector(`#${this.dependentSelectId}`);
         this.dependentLabel = this.querySelector(`[for=${this.dependentSelectId}]`);
-        this.initiallySelectedDependentOptionValue = this.dependentSelect.options[this.dependentSelect.selectedIndex].value;
-
-        console.log(this.initiallySelectedDependentOptionValue);
+        this.initiallySelectedDependentOptionValue = this.dependentSelect.value;
 
         this.parentSelect.addEventListener('change', this.updateDependentSelect.bind(this));
 
@@ -77,7 +75,6 @@ class CascadingSelect extends HTMLElement {
             this.showDependent();
         } else {
             this.setInactiveDependentVisibility();
-            this.dependentSelect.options[0].selected = true;
         }
     }
 
