@@ -2,24 +2,24 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Demo für &lt;cascading-select&gt; Web Component</title>
+    <title>Demo for &lt;cascading-select&gt; Web Component</title>
     <script src="../src/cascading-select.js" defer="defer"></script>
 </head>
 <body>
     <main>
-        <h1>Demo für <code>&lt;cascading-select&gt;</code> Web Component</h1>
-        <h2>Ohne <code>always-show-dependent</code> (default)</h2>
+        <h1>Demo for <code>&lt;cascading-select&gt;</code> Web Component</h1>
+        <h2>Without <code>always-show-dependent</code> (default)</h2>
         <cascading-select>
             <fieldset>
-                <legend>Wo willst du bouldern gehen?</legend>
+                <legend>Where do you want to go bouldering?</legend>
                 <div>
-                    <label for="town">Stadt</label>
-                    <select id="town" name="town" data-dependent-id="halle">
-                        <option value="">Bitte wähle eine Stadt</option>
+                    <label for="city">City</label>
+                    <select id="city" name="city" data-dependent-id="gym">
+                        <option value="">Please choose a city</option>
                         <option
                             value="1"
                             data-dependent-options='[
-                                { "value": "", "label": "Bitte wähle eine Halle" },
+                                { "value": "", "label": "Please choose a gym" },
                                 { "value": "d11", "label": "Boulders Habitat Bonn" },
                                 { "value": "d12", "label": "Boulders Habitat Beuel" }
                             ]'
@@ -29,7 +29,7 @@
                         <option
                             value="2"
                             data-dependent-options='[
-                                { "value": "", "label": "Bitte wähle eine Halle" },
+                                { "value": "", "label": "Please choose a gym" },
                                 { "value": "d21", "label": "Boulderplanet" },
                                 { "value": "d22", "label": "Stuntwerk Köln" },
                                 { "value": "d23", "label": "Kletterfabrik" },
@@ -41,7 +41,7 @@
                         <option
                             value="3"
                             data-dependent-options='[
-                                { "value": "", "label": "Bitte wähle eine Halle" },
+                                { "value": "", "label": "Please choose a gym" },
                                 { "value": "d31", "label": "Monolith" },
                                 { "value": "d32", "label": "Boulderfactory" },
                                 { "value": "d33", "label": "KletterBar" }
@@ -52,25 +52,25 @@
                     </select>
                 </div>
                 <div>
-                    <label for="halle">Halle</label>
-                    <select id="halle" class="form-control">
-                        <option value="">Bitte wähle eine Halle</option>
+                    <label for="gym">Gym</label>
+                    <select id="gym" class="form-control">
+                        <option value="">Please choose a gym</option>
                     </select>
                 </div>
             </fieldset>
         </cascading-select>
-        <h2>Mit <code>always-show-dependent</code></h2>
+        <h2>With <code>always-show-dependent</code></h2>
         <cascading-select always-show-dependent="">
             <fieldset>
-                <legend>Wo willst du bouldern gehen?</legend>
+                <legend>Where do you want to go bouldering?</legend>
                 <div>
-                    <label for="town">Stadt</label>
-                    <select id="town" name="town" data-dependent-id="halle">
-                        <option value="">Bitte wähle eine Stadt</option>
+                    <label for="city">City</label>
+                    <select id="city" name="city" data-dependent-id="gym">
+                        <option value="">Please choose a city</option>
                         <option
                                 value="1"
                                 data-dependent-options='[
-                                { "value": "", "label": "Bitte wähle eine Halle" },
+                                { "value": "", "label": "Please choose a gym" },
                                 { "value": "d11", "label": "Boulders Habitat Bonn" },
                                 { "value": "d12", "label": "Boulders Habitat Beuel" }
                             ]'
@@ -80,7 +80,7 @@
                         <option
                                 value="2"
                                 data-dependent-options='[
-                                { "value": "", "label": "Bitte wähle eine Halle" },
+                                { "value": "", "label": "Please choose a gym" },
                                 { "value": "d21", "label": "Boulderplanet" },
                                 { "value": "d22", "label": "Stuntwerk Köln" },
                                 { "value": "d23", "label": "Kletterfabrik" },
@@ -92,7 +92,7 @@
                         <option
                                 value="3"
                                 data-dependent-options='[
-                                { "value": "", "label": "Bitte wähle eine Halle" },
+                                { "value": "", "label": "Please choose a gym" },
                                 { "value": "d31", "label": "Monolith" },
                                 { "value": "d32", "label": "Boulderfactory" },
                                 { "value": "d33", "label": "KletterBar" }
@@ -103,26 +103,26 @@
                     </select>
                 </div>
                 <div>
-                    <label for="halle">Halle</label>
-                    <select id="halle" class="form-control">
-                        <option value="">Bitte wähle eine Halle</option>
+                    <label for="gym">Gym</label>
+                    <select id="gym" class="form-control">
+                        <option value="">Please choose a gym</option>
                     </select>
                 </div>
             </fieldset>
         </cascading-select>
 
-        <h2>Mit serverseitig vorausgewählter parent und dependent Option</h2>
+        <h2>With server-rendered preselected parent and dependent options</h2>
         <cascading-select>
             <fieldset>
-                <legend>Wo willst du bouldern gehen?</legend>
+                <legend>Where do you want to go bouldering?</legend>
                 <div>
-                    <label for="town">Stadt</label>
-                    <select id="town" name="town" data-dependent-id="halle">
-                        <option value="">Bitte wähle eine Stadt</option>
+                    <label for="city">City</label>
+                    <select id="city" name="city" data-dependent-id="gym">
+                        <option value="">Please choose a city</option>
                         <option
                                 value="1"
                                 data-dependent-options='[
-                                { "value": "", "label": "Bitte wähle eine Halle" },
+                                { "value": "", "label": "Please choose a gym" },
                                 { "value": "d11", "label": "Boulders Habitat Bonn" },
                                 { "value": "d12", "label": "Boulders Habitat Beuel" }
                             ]'
@@ -133,7 +133,7 @@
                                 value="2"
                                 selected="selected"
                                 data-dependent-options='[
-                                { "value": "", "label": "Bitte wähle eine Halle" },
+                                { "value": "", "label": "Please choose a gym" },
                                 { "value": "d21", "label": "Boulderplanet" },
                                 { "value": "d22", "label": "Stuntwerk Köln" },
                                 { "value": "d23", "label": "Kletterfabrik" },
@@ -145,7 +145,7 @@
                         <option
                                 value="3"
                                 data-dependent-options='[
-                                { "value": "", "label": "Bitte wähle eine Halle" },
+                                { "value": "", "label": "Please choose a gym" },
                                 { "value": "d31", "label": "Monolith" },
                                 { "value": "d32", "label": "Boulderfactory" },
                                 { "value": "d33", "label": "KletterBar" }
@@ -156,9 +156,9 @@
                     </select>
                 </div>
                 <div>
-                    <label for="halle">Halle</label>
-                    <select id="halle" class="form-control">
-                        <option value="">Bitte wähle eine Halle</option>
+                    <label for="gym">Gym</label>
+                    <select id="gym" class="form-control">
+                        <option value="">Please choose a gym</option>
                         <option value="d21">Boulderplanet</option>
                         <option value="d22">Stuntwerk Köln</option>
                         <option value="d23" selected="selected">Kletterfabrik</option>

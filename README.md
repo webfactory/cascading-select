@@ -1,47 +1,49 @@
-# cascading-select
+# <cascading-select>
 
-Web Component für voneinander abhängige `<select>` Formularelemente, bei der die verfügbaren Optionen in einer untergeordneten Auswahlliste auf der Auswahl in einer übergeordneten Liste basieren. Das Muster ist auch als "dependent select" (eine Unterform des generischen "input-dependent input") oder "cascading dropdowns" bekannt.
+Web Component for interdependent `<select>` form elements, where the available options in a dependent selection list are based on the selection in a parent or control list. This pattern is also known as "dependent select" (a subform of the generic "input-dependent input") or "cascading dropdowns".
 
 <!--
 ## Installation
 
 ```
-yarn install @webfactory/cascading-select
+yarn install @webfactoryde/cascading-select
 ```
 -->
 
-## Verwendung
+## Usage
 
-Die Web Component `<cascading-select>` ist ein leichtgewichtiger Wrapper für Standard Formular-Markup. Die Nutzung von `<fieldset>`, `<legend>`, `<label>` sowie weiterer Elemente oder Klassen, die für Layout und Styling nötig sind, bleibt dabei komplett flexibel.
+The `<cascading-select>` Web Component is a lightweight wrapper for standard form markup. If offers complete flexibility in regard to the use of `<fieldset>`, `<legend>`, `<label>` and other elements or attributes (i. e. `class`) needed for layout and styling, as long as two `<select>` elements with the necessary (data-) attributes are present.
 
-1. Die JS-Datei "cascading-select.js" muss geladen werden. Je nach Anforderungen an Browser Support ist eine Transpilierung für alte Browser empfehlenswert.
-2. Innerhalb der Web Component müssen zwei `<select>` Elemente ausgegeben werden.
-3. Das "parent" `<select>` bzw. die "control" benötigt ein Attribut `data-dependent-id`, das als Wert die `id` des "dependent" `<select>` enthält, um die beiden Felder zu verknüpfen.
-4. Die `<option>`s des "parent" `<select>`, für die es eine Unterauswahl in zweiter Ebene gibt, benötigen ein Attribut `data-dependent-options`, das als Wert ein JSON-formatiertes Array von Objekten mit jeweils einem `label` und `value` enthält. Leere Platzhalter-Optionen müssen ebenfalls aufgeführt werden.
-5. Das "dependent" `<select>` benötigt ein `id`-Attribut mit der in Schritt 3 verwendeten ID.
+### Steps to implement:
 
-## Parameter
+1. The JS file "cascading-select.js" must be loaded. Depending on browser support requirements, transpilation for older browsers is recommended.
+2. Two `<select>` elements must be output within the Web Component.
+3. The parent `<select>` requires a `data-dependent-id` attribute that contains the `id` of the dependent `<select>` as its value to link the two fields.
+4. The `<option>`s of the parent `<select>` that have a sub-selection at the second level require a `data-dependent-options` attribute with a JSON-formatted array of objects, each containing a `label` and `value`. Empty placeholder options must also be listed.
+5. The dependent `<select>` requires an `id` attribute with matches the value used for `data-dependent-id` on the parent.
 
-Web Components unterstützen allgemeine HTML-Attribute, können aber auch eigene als Parameter empfangen.
+## Parameters
 
-Option | Type    | Default | Description
------- |---------|---------| -----------
-always-show-dependent | boolean | false | Steuert initiale Anzeige des zweiten ("dependent") `<select>`, wenn im ersten ("parent") keine Auswahl bzw. eine Option ohne Unterauswahlmöglichkeiten ausgewählt ist. Default: das zweite Feld ist ausgeblendet. Bei vorhandenem Parameter wird es angezeigt und mit `aria-disabled` ausgezeichnet (in der Annahme, dass es keine sinnvolle Interaktivität hat, bis im "parent" eine Auswahl getroffen wurde, aber trotzdem sichtbar sein soll, um visuell auf das funktionale Muster hinzuweisen.
+Web Components support common HTML attributes but can also receive custom parameters.
 
-## Beispiel
+| Option               | Type    | Default | Description|
+|-----------------------|---------|---------|-----------|
+| always-show-dependent | boolean | false | Controls initial display of the second ("dependent") `<select>` when no selection is made in the first ("parent") or an option without sub-selection possibilities is selected. Default: the second field is hidden. When the parameter is present, it is displayed and marked with `aria-disabled` (assuming it has no meaningful interactivity until a selection is made in the "parent", but should still be visible to visually indicate the functional pattern).|
+
+## Example
 
 ```
 <cascading-select>
     <fieldset>
-        <legend>Wo willst du bouldern gehen?</legend>
+        <legend>Where do you want to go bouldering?</legend>
         <div>
-            <label for="town">Stadt</label>
-            <select id="town" name="town"data-dependent-id="halle">
-                <option value="">Bitte wähle eine Stadt</option>
+            <label for="town">City</label>
+            <select id="town" name="town" data-dependent-id="gym">
+                <option value="">Please choose a city</option>
                 <option
                     value="1"
                     data-dependent-options='[
-                        { "value": "", "label": "Bitte wähle eine Halle" },
+                        { "value": "", "label": "Please choose a gym" },
                         { "value": "d11", "label": "Boulders Habitat Bonn" },
                         { "value": "d12", "label": "Boulders Habitat Beuel" }
                     ]'
@@ -51,7 +53,7 @@ always-show-dependent | boolean | false | Steuert initiale Anzeige des zweiten (
                 <option
                     value="2"
                     data-dependent-options='[
-                        { "value": "", "label": "Bitte wähle eine Halle" },
+                        { "value": "", "label": "Please choose a gym" },
                         { "value": "d21", "label": "Boulderplanet" },
                         { "value": "d22", "label": "Stuntwerk Köln" },
                         { "value": "d23", "label": "Kletterfabrik" },
@@ -63,7 +65,7 @@ always-show-dependent | boolean | false | Steuert initiale Anzeige des zweiten (
                 <option
                     value="3"
                     data-dependent-options='[
-                        { "value": "", "label": "Bitte wähle eine Halle" },
+                        { "value": "", "label": "Please choose a gym" },
                         { "value": "d31", "label": "Monolith" },
                         { "value": "d32", "label": "Boulderfactory" },
                         { "value": "d33", "label": "KletterBar" }
@@ -74,8 +76,8 @@ always-show-dependent | boolean | false | Steuert initiale Anzeige des zweiten (
             </select>
         </div>
         <div>
-            <label for="halle">Halle</label>
-            <select id="halle" class="form-control"></select>
+            <label for="gym">Gym</label>
+            <select id="gym" class="form-control"></select>
         </div>
     </fieldset>
 </cascading-select>
