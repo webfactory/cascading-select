@@ -2,13 +2,11 @@
 
 Web Component for interdependent `<select>` form elements, where the available options in a dependent selection list are based on the selection in a parent or control list. This pattern is also known as "dependent select" (a subform of the generic "input-dependent input") or "cascading dropdowns".
 
-<!--
 ## Installation
 
 ```
-yarn install @webfactoryde/cascading-select
+npm install @webfactoryde/cascading-select
 ```
--->
 
 ## Usage
 
