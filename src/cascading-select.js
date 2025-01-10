@@ -23,7 +23,7 @@ class CascadingSelect extends HTMLElement {
             return;
         }
 
-        // not yet available, watch it for init
+        // Children from the Light DOM not yet available, watch it for init
         this._observer = new MutationObserver(this._init.bind(this));
         this._observer.observe(this, { childList: true });
     }
@@ -32,7 +32,6 @@ class CascadingSelect extends HTMLElement {
         if (this.initialized) {
             return;
         }
-        this.initialized = true;
 
         this.parentSelect = this.querySelector('[data-dependent-id]');
         this.dependentSelectId = this.parentSelect.getAttribute('data-dependent-id');
@@ -43,6 +42,8 @@ class CascadingSelect extends HTMLElement {
         this.parentSelect.addEventListener('change', this.updateDependentSelect.bind(this));
 
         this.updateDependentSelect();
+
+        this.initialized = true;
     }
 
     updateDependentSelect() {
@@ -60,7 +61,7 @@ class CascadingSelect extends HTMLElement {
                 optionElement.value = option.value;
                 optionElement.textContent = option.label;
 
-                if (option.value === this.initiallySelectedDependentOptionValue) {
+                if (!this.initialized && option.value === this.initiallySelectedDependentOptionValue) {
                     hasInitiallySelectedOption = true;
                 }
 
