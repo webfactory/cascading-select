@@ -61,7 +61,9 @@ class CascadingSelect extends HTMLElement {
                 optionElement.value = option.value;
                 optionElement.textContent = option.label;
 
-                if (!this.initialized && option.value === this.initiallySelectedDependentOptionValue) {
+                // select.value always returns and thus this.initiallySelectedDependentOptionValue always contains a string;
+                // we need to make sure the option.value retrieved from data-dependent-options (JSON) is also a string
+                if (!this.initialized && option.value.toString() === this.initiallySelectedDependentOptionValue) {
                     hasInitiallySelectedOption = true;
                 }
 
