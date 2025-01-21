@@ -1,6 +1,6 @@
 {
   "name": "@webfactoryde/cascading-select",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Web Component for interdependent select form elements, where the available options in a dependent selection list are based on the selection in a parent or control list.",
   "main": "src/cascading-select.js",
   "repository": {
