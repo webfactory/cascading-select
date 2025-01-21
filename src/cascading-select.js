@@ -51,10 +51,10 @@ class CascadingSelect extends HTMLElement {
         const selectedParentOptionDependents = selectedParentOption.dataset.dependentOptions;
         let hasInitiallySelectedOption = false;
 
+        this.dependentSelect.value = '';
+
         if (selectedParentOptionDependents) {
             const dependentOptionsData = JSON.parse(selectedParentOptionDependents);
-
-            this.dependentSelect.innerHTML = '';
 
             dependentOptionsData.forEach(option => {
                 const optionElement = document.createElement('option');
