@@ -56,6 +56,8 @@ class CascadingSelect extends HTMLElement {
         if (selectedParentOptionDependents) {
             const dependentOptionsData = JSON.parse(selectedParentOptionDependents);
 
+            this.dependentSelect.innerHTML = '';
+
             dependentOptionsData.forEach(option => {
                 const optionElement = document.createElement('option');
                 optionElement.value = option.value;
