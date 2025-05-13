@@ -12,6 +12,8 @@ npm install @webfactoryde/cascading-select
 
 The `<cascading-select>` Web Component is a lightweight wrapper for standard form markup. If offers complete flexibility in regard to the use of `<fieldset>`, `<legend>`, `<label>` and other elements or attributes (i. e. `class`) needed for layout and styling, as long as two `<select>` elements with the necessary (data-) attributes are present.
 
+The second, dependent `<select>` should initially be hidden (via a `hidden` attribute). This way, in case there are JavaScript errors, the parent `<select>` does still offer high-level filtering and only the progressive enhancement of the secondary filter level is missing.
+ 
 ### Steps to implement:
 
 1. The JS file "cascading-select.js" must be loaded. Depending on browser support requirements, transpilation for older browsers is recommended.
@@ -19,6 +21,7 @@ The `<cascading-select>` Web Component is a lightweight wrapper for standard for
 3. The parent `<select>` requires a `data-dependent-id` attribute that contains the `id` of the dependent `<select>` as its value to link the two fields.
 4. The `<option>`s of the parent `<select>` that have a sub-selection at the second level require a `data-dependent-options` attribute with a JSON-formatted array of objects, each containing a `label` and `value`. Empty placeholder options must also be listed.
 5. The dependent `<select>` requires an `id` attribute with matches the value used for `data-dependent-id` on the parent.
+6. The dependent `<select>` should initially have a `hidden` attribute; this will be removed by the Web Component as needed, but serves as a no-JS fallback in case the Web Component does not initialize correctly.
 
 ## Parameters
 
